@@ -31,14 +31,16 @@ vim.lsp.config("ts_ls", {
   capabilities = capabilities
 })
 
-vim.lsp.config("vimls", {
-})
+vim.lsp.config("vimls", { })
+
+vim.lsp.config("sourcekit", { })
 
 local servers = {
   "kotlin_language_server",
   "bright_script",
   "ts_ls",
-  "vimls"
+  "vimls",
+  "sourcekit",
 }
 
 vim.lsp.enable(servers)

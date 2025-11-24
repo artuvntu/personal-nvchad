@@ -19,6 +19,11 @@ Suggested mason modules
 "brighterscript"
 "kotlin-language-server"
 
+Homebrew dependencies
+
+rust
+codesnap
+
 Get current mason packages intalled
 
 lua print(vim.inspect(require("mason-registry").get_installed_package_names()))
