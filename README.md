@@ -7,3 +7,19 @@
 # Credits
 
 1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
+
+# Artuvntu fork
+
+Suggested mason modules
+
+"lua-language-server"
+"vim-luaguage-server"
+"stylua"
+"tree-sitter-cli"
+"brighterscript"
+"kotlin-language-server"
+
+Get current mason packages intalled
+
+lua print(vim.inspect(require("mason-registry").get_installed_package_names()))
+

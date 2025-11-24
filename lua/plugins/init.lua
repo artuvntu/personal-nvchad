@@ -25,6 +25,7 @@ return {
         "lua",
         "swift",
         "objc",
+        "typescript",
   		},
   	},
   },
@@ -143,4 +144,12 @@ return {
     end,
     lazy = false,
   },
+  {
+    "artuvntu/roku.vim",
+    branch = "artuvntu/brighterscript",
+    init = function ()
+      vim.g.disableAutoFolding = 1
+    end,
+    ft = { "brs", "bs", "xml" }
+  }
 }

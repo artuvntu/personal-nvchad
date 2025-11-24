@@ -4,3 +4,9 @@ require "nvchad.options"
 require "snippets.init"
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
+
+vim.filetype.add({
+  extension = {
+    bs = "brs",
+  }
+})
