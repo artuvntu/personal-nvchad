@@ -58,10 +58,7 @@ return {
     config = function()
       local xcodebuild = require("xcodebuild.integrations.dap")
 
-      -- TODO: change it to your local codelldb path
-      local codelldbPath = "/Users/arturoventura/Downloads/codelldb-darwin-arm64/extension/adapter/codelldb"
-
-      xcodebuild.setup(codelldbPath)
+      xcodebuild.setup()
 
       vim.keymap.set("n", "<leader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
       vim.keymap.set("n", "<leader>dr", xcodebuild.debug_without_build, { desc = "Debug Without Building" })
@@ -151,5 +148,47 @@ return {
       vim.g.disableAutoFolding = 1
     end,
     ft = { "brs", "bs", "xml" }
-  }
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' },
+    opts = {},
+    ft = { "markdown" }
+  },
+  {
+    "linrongbin16/gitlinker.nvim",
+    cmd = "GitLink",
+    opts = {},
+    keys = {
+      { "<leader>gy", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Yank git link" },
+      { "<leader>gY", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
+    },
+    lazy = false,
+  },
+  {
+    "mistricky/codesnap.nvim",
+    build = "make build_generator",
+    keys = {
+      { "<leader>cc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
+      { "<leaser>cs", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save slected code snapshopt in ~/Desktop" },
+    },
+    opts = {
+      save_path = "~/Desktop",
+      has_breadcrumbs = true,
+      bg_theme = "bamboo",
+      watermark = "",
+      bg_padding = 20,
+    },
+    lazy = false,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    url = "https://github.com/artuvntu/telescope.nvim",
+    branch = "artuvntu/fix-gitstatus",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    cmd = "Telescope",
+    opts = function()
+      return require "nvchad.configs.telescope"
+    end,
+  },
 }
