@@ -4,6 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
+local on_init = require("nvchad.configs.lspconfig").on_init
 
 vim.lsp.config("kotlin_language_server", {
   on_attach = on_attach,
@@ -18,8 +19,26 @@ vim.lsp.config("kotlin_language_server", {
   },
 })
 
+vim.lsp.config("bright_script", {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities
+})
+
+vim.lsp.config("ts_ls", {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities
+})
+
+vim.lsp.config("vimls", {
+})
+
 local servers = {
-  "kotlin_language_server"
+  "kotlin_language_server",
+  "bright_script",
+  "ts_ls",
+  "vimls"
 }
 
 vim.lsp.enable(servers)
