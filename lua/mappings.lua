@@ -16,7 +16,7 @@ map("n", "<leader>cp", function()
   print("Copied: " .. path)
 end, { desc = "Copy relative file path" })
 
-map("n", "<leader>gh", "<cmd>Gitsighs next_hunk<cr>", { desc = "Go to next git hunk" })
+map("n", "<leader>gh", "<cmd>Gitsigns next_hunk<cr>", { desc = "Go to next git hunk" })
 
 -- map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 -- Xcode mappiing
