@@ -220,4 +220,10 @@ return {
     -- available after the first executing of it or after a keymap of text-case.nvim has been used.
     lazy = false,
   },
+  {
+    "wellle/context.vim",
+    config = function ()
+    end,
+    lazy = false,
+  }
 }
