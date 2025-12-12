@@ -187,16 +187,6 @@ return {
     lazy = false,
   },
   {
-    "nvim-telescope/telescope.nvim",
-    url = "https://github.com/artuvntu/telescope.nvim",
-    branch = "artuvntu/fix-gitstatus",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    cmd = "Telescope",
-    opts = function()
-      return require "nvchad.configs.telescope"
-    end,
-  },
-  {
     "johmsalas/text-case.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
@@ -225,5 +215,16 @@ return {
     config = function ()
     end,
     lazy = false,
-  }
+  },
+  {
+    "artuvntu/telescope.nvim",
+    name = "telescope.nvim",
+    url = "https://github.com/artuvntu/telescope.nvim",
+    branch = "artuvntu/fix-gitstatus",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    cmd = "Telescope",
+    opts = function()
+      return require "nvchad.configs.telescope"
+    end,
+  },
 }
