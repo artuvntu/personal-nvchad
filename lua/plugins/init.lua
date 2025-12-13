@@ -216,6 +216,11 @@ return {
     end,
     lazy = false,
   },
+  { 'nvim-mini/mini.splitjoin',
+    version = '*',
+    lazy = false,
+    opts = {},
+  },
   {
     "artuvntu/telescope.nvim",
     name = "telescope.nvim",
