@@ -60,7 +60,12 @@ return {
       "wojciech-kulik/xcodebuild.nvim",
        "nvim-neotest/nvim-nio"
     },
+    keys = {
+      { "<leader>dc", "<cmd>DapContinue<cr>", desc = "DAP continue" },
+    },
     config = function()
+      require "configs.dap_js"
+
       local xcodebuild = require("xcodebuild.integrations.dap")
 
       xcodebuild.setup()
@@ -78,9 +83,19 @@ return {
     ft = { "swift", "objective-c", "objective-cpp" }, -- Load for specific filetypes
   },
 
+
   {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", },
+    keys = {
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle()
+        end,
+        desc = "DAP UI toggle",
+      },
+    },
     lazy = true,
     config = function()
       require("dapui").setup({
@@ -127,12 +142,12 @@ return {
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
       end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
+      -- dap.listeners.before.event_terminated["dapui_config"] = function()
+      --   dapui.close()
+      -- end
+      -- dap.listeners.before.event_exited["dapui_config"] = function()
+      --   dapui.close()
+      -- end
     end,
   },
 

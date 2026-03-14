@@ -14,6 +14,7 @@ Suggested mason modules
 
 "lua-language-server"
 "vim-luaguage-server"
+"js-debug-adapter"
 "stylua"
 "tree-sitter-cli"
 "brighterscript"
@@ -28,3 +29,7 @@ Get current mason packages intalled
 
 lua print(vim.inspect(require("mason-registry").get_installed_package_names()))
 
+Lazy.nvim lockfile workflow
+
+- Use :Lazy restore to install exact versions from lazy-lock.json (no updates).
+- Avoid :Lazy sync when you want to keep lazy-lock.json unchanged.
