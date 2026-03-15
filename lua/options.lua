@@ -19,3 +19,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "json", "jsonc", "yaml", "yml" },
+  callback = function()
+    vim.opt_local.foldmethod = "indent"
+    vim.opt_local.foldlevel = 99
+    vim.opt_local.foldenable = true
+    vim.opt_local.foldlevelstart = 99
+
+  end,
+})
