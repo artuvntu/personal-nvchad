@@ -32,3 +32,5 @@ map("n", "<leader>rxc", "<cmd>XcodebuildToggleCodeCoverage<cr>", { desc = "Toggl
 map("n", "<leader>rxC", "<cmd>XcodebuildShowCodeCoverageReport<cr>", { desc = "Show Code Coverage Report" })
 map("n", "<leader>rxq", "<cmd>Telescope quickfix<cr>", { desc = "Show QuickFix List" })
 
+map("n", "<leader>tw+", "<cmd>NvimTreeResize +50<cr>", { desc = "NvimTree increase width" })
+map("n", "<leader>tw0", "<cmd>NvimTreeResize 30<cr>", { desc = "NvimTree reset width" })

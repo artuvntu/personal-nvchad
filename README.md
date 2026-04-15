@@ -24,6 +24,7 @@ Homebrew dependencies
 
 rust
 codesnap
+imagemagick
 
 Get current mason packages intalled
 

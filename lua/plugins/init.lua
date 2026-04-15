@@ -236,15 +236,31 @@ return {
     lazy = false,
     opts = {},
   },
+  -- {
+  --   "artuvntu/telescope.nvim",
+  --   name = "telescope.nvim",
+  --   url = "https://github.com/artuvntu/telescope.nvim",
+  --   branch = "artuvntu/fix-gitstatus",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   cmd = "Telescope",
+  --   opts = function()
+  --     return require "nvchad.configs.telescope"
+  --   end,
+  -- },
   {
-    "artuvntu/telescope.nvim",
-    name = "telescope.nvim",
-    url = "https://github.com/artuvntu/telescope.nvim",
-    branch = "artuvntu/fix-gitstatus",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    cmd = "Telescope",
-    opts = function()
-      return require "nvchad.configs.telescope"
-    end,
+    "3rd/image.nvim",
+    build = false,
+    event = "BufReadPre",
+    opts = {
+      backend = "kitty",
+      processor = "magick_cli",
+      integrations = {
+        markdown = {
+          enabled = true,
+          filetypes = { "markdown" },
+        },
+      },
+      hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" },
+    },
   },
 }
