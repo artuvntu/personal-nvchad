@@ -13,7 +13,13 @@ return {
     end,
   },
 
-  -- test new blink
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      return require "configs.cmp"
+    end,
+  },
+
   -- { import = "nvchad.blink.lazyspec" },
 
   {
@@ -36,17 +42,21 @@ return {
   },
 
   {
-    "wojciech-kulik/xcodebuild.nvim",
+    "artuvntu/xcodebuild.nvim",
+    branch = "main",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "MunifTanjim/nui.nvim",
-      -- "nvim-tree/nvim-tree.lua", -- (optional) to manage project files
-      "stevearc/oil.nvim", -- (optional) to manage project files
+      "nvim-tree/nvim-tree.lua", -- (optional) to manage project files
+      -- "stevearc/oil.nvim", -- (optional) to manage project files
       -- "nvim-treesitter/nvim-treesitter", -- (optional) for Quick tests support (required Swift parser)
     },
     config = function()
       require("xcodebuild").setup({
         -- put some options here or leave it empty to use default settings
+        commands = {
+        focus_simulator_on_app_launch = false, -- focus simulator window when app is launched
+        }
       })
     end,
     lazy = true, -- Enable lazy loading
@@ -57,7 +67,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      "wojciech-kulik/xcodebuild.nvim",
+      "artuvntu/xcodebuild.nvim",
        "nvim-neotest/nvim-nio"
     },
     keys = {
@@ -236,17 +246,6 @@ return {
     lazy = false,
     opts = {},
   },
-  -- {
-  --   "artuvntu/telescope.nvim",
-  --   name = "telescope.nvim",
-  --   url = "https://github.com/artuvntu/telescope.nvim",
-  --   branch = "artuvntu/fix-gitstatus",
-  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   cmd = "Telescope",
-  --   opts = function()
-  --     return require "nvchad.configs.telescope"
-  --   end,
-  -- },
   {
     "3rd/image.nvim",
     build = false,
