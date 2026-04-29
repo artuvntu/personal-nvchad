@@ -16,6 +16,14 @@ map("n", "<leader>cp", function()
   print("Copied: " .. path)
 end, { desc = "Copy relative file path" })
 
+map("n", "<leader>cP", function()
+  local path = vim.fn.expand("%")
+  local line = vim.fn.line(".")
+  local path_with_line = path .. ":" .. line
+  vim.fn.setreg("+", path_with_line)
+  print("Copied: " .. path_with_line)
+end, { desc = "Copy file path with line" })
+
 map("n", "<leader>gh", "<cmd>Gitsigns next_hunk<cr>", { desc = "Go to next git hunk" })
 
 -- map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
