@@ -19,6 +19,7 @@ Suggested mason modules
 "tree-sitter-cli"
 "brighterscript"
 "kotlin-language-server"
+"pyright"
 
 Homebrew dependencies
 
