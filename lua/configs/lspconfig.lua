@@ -41,6 +41,7 @@ local servers = {
   "ts_ls",
   "vimls",
   "sourcekit",
+  "pyright",
 }
 
 vim.lsp.enable(servers)
