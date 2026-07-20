@@ -43,7 +43,7 @@ return {
 
   {
     "artuvntu/xcodebuild.nvim",
-    branch = "main",
+    branch = "artuvntu/derivedData",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "MunifTanjim/nui.nvim",
@@ -196,18 +196,36 @@ return {
     lazy = false,
   },
   {
-    "mistricky/codesnap.nvim",
-    build = "make build_generator",
+    "artuvntu/codesnap.nvim",
+    branch = "artuvntu/useLocalGenerator",
     keys = {
       { "<leader>cc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
-      { "<leaser>cs", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save slected code snapshopt in ~/Desktop" },
+      {
+        "<leader>cs",
+        function()
+          vim.cmd("CodeSnapSave " .. vim.fn.fnameescape(vim.fn.expand("~/Desktop/codesnap.png")))
+        end,
+        mode = "x",
+        desc = "Save selected code snapshot in ~/Desktop",
+      },
     },
     opts = {
-      save_path = "~/Desktop",
-      has_breadcrumbs = true,
-      bg_theme = "bamboo",
-      watermark = "",
-      bg_padding = 20,
+      snapshot_config = {
+        window = {
+          margin = {
+            x = 20,
+            y = 20,
+          },
+        },
+        code_config = {
+          breadcrumbs = {
+            enable = true,
+          },
+        },
+        watermark = {
+          content = "",
+        },
+      },
     },
     lazy = false,
   },
